@@ -7,7 +7,7 @@ export default function Admin(){
         <div>
             <Header/>
             <h1> This is the Admin page</h1>
-            <Product/>
+         
             
         </div>
         

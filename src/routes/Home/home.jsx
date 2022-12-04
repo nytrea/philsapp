@@ -1,29 +1,54 @@
+import React, {useState, useEffect} from "react";
 import { collection, onSnapshot, query, getDocs } from 'firebase/firestore';
 import { db } from '../../firestore';
 import Header from '../../components/Header/header'
 import Product from '../../components/Product-Card/product-card'
+import './home.css';
 
+// import firebase from "./firebase"
 
 export default function Home(){
-    const [products, setProducts] = useState([])
+    const [muji_products, setProducts] = useState([])
+        useEffect(() => {
+            const getProducts = () => {
+                const productsList = []
+                getDocs(collection(db, "products")).then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+                        const productData = {
+                            keyName: doc.id,
+                            ...doc.data(),
+                        }
+                        productsList.push(productData);
+                    })
+                    setProducts(productsList)
+                }).catch((error) => {
+                    console.log(error.message)
+                })
+            }
+            getProducts()
+        },[]
+    )
 
-    const ref = firebase.firestore().collection("products");
+     //testing asynch function
+     useEffect(() => {
+        console.log(muji_products);
+    }, [muji_products])
+    
 
     return(
         <div>
             <Header/>
-            <h1> This is the home page</h1>
-            <Product/>
+            {/* <Product/> */}
 
-            <h1> Shop </h1>
-            {
-                products.map((products) =>(
-                    <div key = {products.id}>
-                        <h2>{products.title}</h2>
-                        <p>{products.price}</p>
-                    </div>
-                ))
-            }
+            <h1> Shop All Products </h1>
+            <div className = "products-container">
+                <div className="product-card">
+                    {muji_products.map((product) => {
+                        console.log(product)
+                        return <Product key={product.id} item={product} />
+                    })}
+                </div>
+            </div>
             
         </div>
         

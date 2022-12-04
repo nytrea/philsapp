@@ -1,23 +1,24 @@
 import React from 'react';
 import './product-card.css';
 
-const Product = () => (
-    <div className = 'product-card-container'>
+const Product = ({item}) => {
+    return(
+        <div className = 'product-card-container'>
+            <div className = 'image-container'>
+                {/* <img src={whiteLogo} alt="Logo" className='white-logo'/>   */}
+            </div>
+            
+            <div className='product-card-info'>
+                <h3 className="product-title">{item.title}</h3>
+                <h3 className="product-price">{item.price}</h3>
+            </div>
 
-        <div className = 'image-container'>
-         {/* <img src={whiteLogo} alt="Logo" className='white-logo'/>   */}
+            <div className='add-to-cart-btn'>
+                <button className="add-to-cart-btn-container">
+                    <h1 className="add-to-cart-btn-text">Add to Cart</h1>
+                </button>
+            </div>
         </div>
-        
-        <div className='product-card-info'>
-            <h1> Product Title </h1>
-            <h2> $Price.00 </h2>
-        </div>
-
-        <div className='add-to-cart-btn'>
-        </div>
-
-    </div>
-    
-
-);
-export default(Product)
+    )
+}
+export default(Product);
