@@ -20,7 +20,6 @@
 
 .image-container{
     height: 14rem;
-    background: gray;
     margin: 2rem;
 }
 
@@ -37,7 +36,17 @@
     margin-bottom: 1rem;
 }
 
+.add-to-cart-btn-container:hover{
+    cursor: pointer;
+    background-color: #5d0006;
+    transition: ease-in, 0.2s;
+}
+
 .add-to-cart-btn-text{
     color: white;
     font-size: 1.2rem;
+}
+
+.product-image{
+    width: 100%;
 }

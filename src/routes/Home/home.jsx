@@ -4,6 +4,7 @@ import { db } from '../../firestore';
 import Header from '../../components/Header/header'
 import Product from '../../components/Product-Card/product-card'
 import './home.css';
+import Hero from '../../components/Hero/hero'
 
 // import firebase from "./firebase"
 
@@ -38,11 +39,11 @@ export default function Home(){
     return(
         <div>
             <Header/>
+            <Hero/>
             {/* <Product/> */}
 
-            <h1> Shop All Products </h1>
-            <div className = "products-container">
-                <div className="product-card">
+            <div className = "products-container d-flex justify-content-between row row-cols-1 row-cols-md-2">
+                <div className="product-card col-auto mt-2">
                     {muji_products.map((product) => {
                         console.log(product)
                         return <Product key={product.id} item={product} />

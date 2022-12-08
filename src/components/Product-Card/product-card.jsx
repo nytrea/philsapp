@@ -3,13 +3,13 @@ import './product-card.css';
 import { format_price } from '../utilities/currency'
 import { collection, onSnapshot, query, getDocs } from 'firebase/firestore';
 import { db } from '../../firestore';
-
+import { Link } from 'react-router-dom'; 
 
 const Product = ({item}) => {
     return(
         <div className = 'product-card-container'>
             <div className = 'image-container'>
-                <img src={item.image}/>
+                <img src={item.image} className="product-image"></img>
             </div>
             
             <div className='product-card-info'>

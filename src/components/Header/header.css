@@ -1,7 +1,7 @@
 
 .nav-container{
     background-color: #810009;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
 }
 
 .nav-element{
@@ -11,6 +11,11 @@
     padding: 2rem;
     font-size: 1.5rem;
     text-decoration: none;
+}
+
+.nav-element:hover{
+    color: #D7B89C;
+    transition: ease-in, 0.2s;
 }
 
 .logo-container{
